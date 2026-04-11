@@ -5,6 +5,7 @@ import java.util.Scanner;
 import br.com.estruturadados.listasligadas.ListaDuplamenteLigada;
 import br.com.estruturadados.listasligadas.ListaLigada;
 import br.com.estruturadados.modelos.Pessoa;
+import br.com.estruturadados.pilha.Pilha;
 import br.com.estruturadados.vetores.Vetor;
 
 public class Main {
@@ -14,7 +15,9 @@ public class Main {
 		IO.println("1. Gerenciamento de memória");
 		IO.println("2. Vetores");
 		IO.println("3. Lista ligada");
-		IO.print("4. Lista duplamente ligada");
+		IO.println("4. Lista duplamente ligada");
+		IO.println("5. Pilha");
+
 		Scanner sc = new Scanner(System.in);
 		int opcao = sc.nextInt();
 		switch (opcao) {
@@ -30,11 +33,25 @@ public class Main {
 		case 4:
 			fazerListaDuplamenteLigada();
 			break;
-		}
+		case 5:
+			fazerPilha();
+			break;	
+		} 
 		
 		sc.close();
 	}
 	
+	private static void fazerPilha() {
+		Pilha<Pessoa> pilhaPessoas = new Pilha<Pessoa>();
+		IO.println(pilhaPessoas.estaVazia());
+		pilhaPessoas.empilhar(new Pessoa(1, "Gabriel 1"));
+		pilhaPessoas.empilhar(new Pessoa(2, "Gabriel 2"));
+		pilhaPessoas.empilhar(new Pessoa(3, "Gabriel 3"));
+		Pessoa p1 = pilhaPessoas.desempilhar();
+		IO.println(p1.toString());
+
+	}
+
 	private static void fazerListaDuplamenteLigada() {
 		ListaDuplamenteLigada<Pessoa> listaPessoas = new ListaDuplamenteLigada<Pessoa>();
 		listaPessoas.inserir(new Pessoa(1, "Gabriel 1"));
