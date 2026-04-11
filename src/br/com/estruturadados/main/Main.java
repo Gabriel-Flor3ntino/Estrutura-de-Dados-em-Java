@@ -1,8 +1,8 @@
 package br.com.estruturadados.main;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
+import br.com.estruturadados.listasligadas.ListaDuplamenteLigada;
 import br.com.estruturadados.listasligadas.ListaLigada;
 import br.com.estruturadados.modelos.Pessoa;
 import br.com.estruturadados.vetores.Vetor;
@@ -14,6 +14,7 @@ public class Main {
 		IO.println("1. Gerenciamento de memória");
 		IO.println("2. Vetores");
 		IO.println("3. Lista ligada");
+		IO.print("4. Lista duplamente ligada");
 		Scanner sc = new Scanner(System.in);
 		int opcao = sc.nextInt();
 		switch (opcao) {
@@ -26,11 +27,39 @@ public class Main {
 		case 3:
 			fazerListaLigada();
 			break;
+		case 4:
+			fazerListaDuplamenteLigada();
+			break;
 		}
 		
 		sc.close();
 	}
 	
+	private static void fazerListaDuplamenteLigada() {
+		ListaDuplamenteLigada<Pessoa> listaPessoas = new ListaDuplamenteLigada<Pessoa>();
+		listaPessoas.inserir(new Pessoa(1, "Gabriel 1"));
+		listaPessoas.inserir(new Pessoa(2, "Gabriel 2"));
+		listaPessoas.inserir(new Pessoa(3, "Gabriel 3"));
+		listaPessoas.inserirEm(1, new Pessoa(4, "Gabriel 4"));
+		listaPessoas.inserirPrimeiro(new Pessoa(5, "Gabriel 5"));
+		listaPessoas.inserirUltimo(new Pessoa(6, "Gabriel 6"));
+		IO.println(listaPessoas.toString());
+		Pessoa p = listaPessoas.recuperar(1);
+		Pessoa pessoaErrada =  new Pessoa(100, "Gabriel 100");
+		IO.println(listaPessoas.contem(p));
+		IO.println(listaPessoas.contem(pessoaErrada));
+		IO.println(listaPessoas.indice(p));
+		IO.println(listaPessoas.indice(pessoaErrada));
+		listaPessoas.remover(p);
+		IO.println(listaPessoas.toString());
+		listaPessoas.remover(0);
+		IO.println(listaPessoas.toString());
+		IO.println("Lista de pessoas");
+		for (int i = 0; i < listaPessoas.tamanho(); i++) {
+			IO.println(listaPessoas.recuperar(i).toString());
+		}
+	}
+
 	public static void fazerListaLigada() {
 		ListaLigada<Pessoa> listaPessoas = new ListaLigada<Pessoa>();
 		listaPessoas.inserir(new Pessoa(1, "Gabriel 1"));

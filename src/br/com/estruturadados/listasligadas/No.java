@@ -4,6 +4,7 @@ class No<T> {
 	
 	private T elemento;
 	private No<T> proximo;
+	private No<T> anterior;
 	
 	
 	public No() {
@@ -35,6 +36,16 @@ class No<T> {
 	public void setProximo(No<T> proximo) {
 		this.proximo = proximo;
 	}
+
+	public No<T> getAnterior() {
+		return anterior;
+	}
+
+	public void setAnterior(No<T> anterior) {
+		this.anterior = anterior;
+	}
+	
+	
 	
 	
 }
