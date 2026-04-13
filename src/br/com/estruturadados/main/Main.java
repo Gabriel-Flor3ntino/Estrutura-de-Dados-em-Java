@@ -58,7 +58,7 @@ public class Main {
 		// IO.println(conjuntoPessoas.inserir(new Pessoa(1,"Gabriel")));
 		IO.println(conjuntoPessoas.inserir(new Pessoa(2,"Gabriel")));
 		IO.println(conjuntoPessoas.toString());
-		IO.println(conjuntoPessoas.inserirEm(1, new Pessoa(1,"Gabriel")));
+		IO.println(conjuntoPessoas.inserir(new Pessoa(1,"Gabriel")));
 		IO.println(conjuntoPessoas.toString());
 	}
 
