@@ -36,7 +36,11 @@ public class Pessoa {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, nome);
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + id;
+		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		return result;
 	}
 
 	@Override
