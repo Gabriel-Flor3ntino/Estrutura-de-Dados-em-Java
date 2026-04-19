@@ -76,6 +76,11 @@ public class Arvore<T> {
 		this.preOrdem(this.raiz);
 	}
 
+  public void posOrdem() {
+    // EDR
+    this.posOrdem(this.raiz);
+  }
+
 	private void emOrdem(NoArvore<T> ref) {
 		if (ref.getNoEsquerdo() != null) {
 			emOrdem(ref.getNoEsquerdo());
@@ -104,6 +109,28 @@ public class Arvore<T> {
 			}
 		}
 	}
+
+  	/*
+			    	5
+				4				7
+			1		  	6		8
+		*/
+  private void posOrdem(NoArvore<T> ref) {
+    if (ref.getNoEsquerdo() != null) {
+      posOrdem(ref.getNoEsquerdo());
+      if(ref.getNoDireito() != null) {
+        posOrdem(ref.getNoDireito());
+      }
+      IO.println(ref.getValor().toString());
+    } else {
+      if (ref.getNoDireito() != null) {
+        posOrdem(ref.getNoDireito());
+        IO.println(ref.getValor().toString());
+      } else {
+        IO.println(ref.getValor().toString());
+      }
+    }
+  }
 
 	@Override
 	public String toString() {
