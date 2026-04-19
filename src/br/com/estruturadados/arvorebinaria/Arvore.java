@@ -76,10 +76,14 @@ public class Arvore<T> {
 		this.preOrdem(this.raiz);
 	}
 
-  public void posOrdem() {
-    // EDR
-    this.posOrdem(this.raiz);
-  }
+	public void posOrdem() {
+		// EDR
+		this.posOrdem(this.raiz);
+	}
+
+	public int altura() {
+		return this.altura(this.raiz);
+	}
 
 	private void emOrdem(NoArvore<T> ref) {
 		if (ref.getNoEsquerdo() != null) {
@@ -110,27 +114,34 @@ public class Arvore<T> {
 		}
 	}
 
-  	/*
-			    	5
-				4				7
-			1		  	6		8
-		*/
-  private void posOrdem(NoArvore<T> ref) {
-    if (ref.getNoEsquerdo() != null) {
-      posOrdem(ref.getNoEsquerdo());
-      if(ref.getNoDireito() != null) {
-        posOrdem(ref.getNoDireito());
-      }
-      IO.println(ref.getValor().toString());
-    } else {
-      if (ref.getNoDireito() != null) {
-        posOrdem(ref.getNoDireito());
-        IO.println(ref.getValor().toString());
-      } else {
-        IO.println(ref.getValor().toString());
-      }
-    }
-  }
+	/*
+	 * 5 4 7 1 6 8
+	 */
+	private void posOrdem(NoArvore<T> ref) {
+		if (ref.getNoEsquerdo() != null) {
+			posOrdem(ref.getNoEsquerdo());
+			if (ref.getNoDireito() != null) {
+				posOrdem(ref.getNoDireito());
+			}
+			IO.println(ref.getValor().toString());
+		} else {
+			if (ref.getNoDireito() != null) {
+				posOrdem(ref.getNoDireito());
+				IO.println(ref.getValor().toString());
+			} else {
+				IO.println(ref.getValor().toString());
+			}
+		}
+	}
+
+	private int altura(NoArvore<T> ref) {
+		if (ref == null) {
+			return -1;
+		}
+		int altEsquerda = altura(ref.getNoEsquerdo());
+		int alturaDireita = altura(ref.getNoDireito());
+		return altEsquerda > alturaDireita ? altEsquerda + 1 : alturaDireita + 1;
+	}
 
 	@Override
 	public String toString() {

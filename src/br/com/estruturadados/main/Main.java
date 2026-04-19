@@ -80,6 +80,7 @@ public class Main {
 //      IO.println(arvorePessoas.buscar(noPessoa1));
 		arvorePessoas.inserir(new NoArvorePessoa(new Pessoa(1, "Gabriel 1")));
 		arvorePessoas.inserir(new NoArvorePessoa(new Pessoa(6, "Gabriel 6")));
+//		arvorePessoas.inserir(new NoArvorePessoa(new Pessoa(20, "Gabriel 20")));
 		IO.println(arvorePessoas.toString());
 		IO.println("*************");
 		IO.println("*** EM ORDEM ***");
@@ -88,6 +89,8 @@ public class Main {
 		arvorePessoas.preOrdem();
 		IO.println("*** POS ORDEM ***");
 		arvorePessoas.posOrdem();
+		IO.println("*** ALTURA ***");
+		IO.println(arvorePessoas.altura());
 	}
 
 	private static void fazerMapa() {
