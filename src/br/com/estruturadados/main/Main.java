@@ -69,18 +69,23 @@ public class Main {
 		IO.println(arvorePessoas.toString());
 		arvorePessoas.inserir(new NoArvorePessoa(new Pessoa(4, "Gabriel 4")));
 		IO.println(arvorePessoas.toString());
-		arvorePessoas.inserir(new NoArvorePessoa(new Pessoa(6, "Gabriel 6")));
-		IO.println(arvorePessoas.toString());
 		arvorePessoas.inserir(new NoArvorePessoa(new Pessoa(7, "Gabriel 7")));
 		IO.println(arvorePessoas.toString());
+		arvorePessoas.inserir(new NoArvorePessoa(new Pessoa(8, "Gabriel 8")));
+		IO.println(arvorePessoas.toString());
 		IO.println("Busca...");
-		NoArvore<Pessoa> noPessoa6 = new NoArvorePessoa(new Pessoa(6, "Gabriel 6"));
-		NoArvore<Pessoa> noPessoa1 = new NoArvorePessoa(new Pessoa(1, "Gabriel 1"));
-		//IO.println(arvorePessoas.buscar(noPessoa6));
-		//IO.println(arvorePessoas.buscar(noPessoa1));
+		NoArvore<Pessoa> noPessoa6 = new NoArvorePessoa(new Pessoa(8, "Gabriel 8"));
+//      NoArvore<Pessoa> noPessoa1 = new NoArvorePessoa(new Pessoa(1, "Gabriel 1"));
+		IO.println(arvorePessoas.buscar(noPessoa6));
+//      IO.println(arvorePessoas.buscar(noPessoa1));
+		arvorePessoas.inserir(new NoArvorePessoa(new Pessoa(1, "Gabriel 1")));
+		arvorePessoas.inserir(new NoArvorePessoa(new Pessoa(6, "Gabriel 6")));
+		IO.println(arvorePessoas.toString());
 		IO.println("*************");
 		IO.println("*** EM ORDEM ***");
 		arvorePessoas.emOrdem();
+		IO.println("*** PRE ORDEM ***");
+		arvorePessoas.preOrdem();
 		
 	}
 
