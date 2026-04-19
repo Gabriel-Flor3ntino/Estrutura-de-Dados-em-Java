@@ -2,6 +2,9 @@ package br.com.estruturadados.main;
 
 import java.util.Scanner;
 
+import br.com.estruturadados.arvorebinaria.Arvore;
+import br.com.estruturadados.arvorebinaria.NoArvore;
+import br.com.estruturadados.arvorebinaria.NoArvorePessoa;
 import br.com.estruturadados.conjuntos.Conjunto;
 import br.com.estruturadados.filas.Fila;
 import br.com.estruturadados.listasligadas.ListaDuplamenteLigada;
@@ -23,6 +26,7 @@ public class Main {
 		IO.println("6. Fila");
 		IO.println("7. Conjunto");
 		IO.println("8. Mapas");
+		IO.println("9. Árvore");
 
 		Scanner sc = new Scanner(System.in);
 		int opcao = sc.nextInt();
@@ -51,10 +55,35 @@ public class Main {
 		case 8:
 			fazerMapa();
 			break;
+		case 9:
+			fazerArvore();
+			break;
 		} 
 		sc.close();
 	}
 	
+	private static void fazerArvore() {
+		Arvore<Pessoa> arvorePessoas = new Arvore<Pessoa>();
+		IO.println(arvorePessoas.toString());
+		arvorePessoas.inserir(new NoArvorePessoa(new Pessoa(5, "Gabriel 5")));
+		IO.println(arvorePessoas.toString());
+		arvorePessoas.inserir(new NoArvorePessoa(new Pessoa(4, "Gabriel 4")));
+		IO.println(arvorePessoas.toString());
+		arvorePessoas.inserir(new NoArvorePessoa(new Pessoa(6, "Gabriel 6")));
+		IO.println(arvorePessoas.toString());
+		arvorePessoas.inserir(new NoArvorePessoa(new Pessoa(7, "Gabriel 7")));
+		IO.println(arvorePessoas.toString());
+		IO.println("Busca...");
+		NoArvore<Pessoa> noPessoa6 = new NoArvorePessoa(new Pessoa(6, "Gabriel 6"));
+		NoArvore<Pessoa> noPessoa1 = new NoArvorePessoa(new Pessoa(1, "Gabriel 1"));
+		//IO.println(arvorePessoas.buscar(noPessoa6));
+		//IO.println(arvorePessoas.buscar(noPessoa1));
+		IO.println("*************");
+		IO.println("*** EM ORDEM ***");
+		arvorePessoas.emOrdem();
+		
+	}
+
 	private static void fazerMapa() {
 		Mapa<String, Pessoa> mapaPessoa = new Mapa<String, Pessoa>();
 		IO.println(mapaPessoa.toString());
